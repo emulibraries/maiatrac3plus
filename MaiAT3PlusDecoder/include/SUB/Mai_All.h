@@ -58,6 +58,7 @@ typedef Mai_U32 DWORD;
 /* Include */
 #ifndef MAI_USER_APP
 #ifdef MAI_WIN
+#include <winsock2.h>
 #include <windows.h>
 #include <mmsystem.h>
 #include <ws2tcpip.h>

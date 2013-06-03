@@ -37,6 +37,7 @@ MaiAT3PlusCoreDecoder::MaiAT3PlusCoreDecoder()
 	for (Mai_I32 a0 = 0; a0 < 2; a0++)
 	{
 		chn_info[a0] = (MaiAT3PlusCoreDecoderChnInfo*)heap0.alloc(sizeof(MaiAT3PlusCoreDecoderChnInfo));
+		Mai_memset(chn_info[a0], 0, sizeof(MaiAT3PlusCoreDecoderChnInfo));
 		
 		chn_info[a0]->chn_flag = a0;
 		chn_info[a0]->joint_chn_info = joint_chn_info;

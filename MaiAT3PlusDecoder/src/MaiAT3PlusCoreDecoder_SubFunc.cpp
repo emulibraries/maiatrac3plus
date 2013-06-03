@@ -2487,7 +2487,7 @@ Mai_Status MAPCDSF_splitePack1_Route2(MaiBitReader *mbr0, MaiAT3PlusCoreDecoderC
 
 Mai_Status MAPCDSF_splitePack1_Route3(MaiBitReader *mbr0, MaiAT3PlusCoreDecoderChnInfo *chn_info)
 {
-	Mai_Status rs;
+	Mai_Status rs = 0;
 
 	Mai_I32 l4 = 0;
 

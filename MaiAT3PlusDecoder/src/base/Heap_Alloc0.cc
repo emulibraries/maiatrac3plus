@@ -84,7 +84,9 @@ Mai_Status Heap_Alloc0::free(Mai_Void* pointer)
 
 #else
 
+#ifndef __APPLE__
 #include <malloc.h>
+#endif
 #include <sys/mman.h>
 
 Heap_Alloc0::Heap_Alloc0()

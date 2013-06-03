@@ -68,7 +68,6 @@ Mai_Status MAPCDDF_initMDataTable(MaiAT3PlusCoreDecoderChnInfo **chn_infos, floa
 		}
 	}
 
-
 	if (chns == 2)
 	{
 		for (Mai_U32 a0 = 0; a0 < chn_infos[0]->joint_chn_info->num_band_splited_used; a0++)
@@ -104,7 +103,6 @@ Mai_Status MAPCDDF_initMDataTable(MaiAT3PlusCoreDecoderChnInfo **chn_infos, floa
 			}
 		}
 
-
 		for (Mai_U32 a0 = 0; a0 < chn_infos[0]->joint_chn_info->num_band_used; a0++)
 		{
 			Mai_U8 table_tmp2[] = {0x00, 0x01, 0x01, 0x02, 0x02, 0x02, 0x03, 0x03, 0x03, 0x03, 0x03, 0x04, 0x04, 0x04, 0x04, 0x04};
@@ -127,16 +125,15 @@ Mai_Status MAPCDDF_initMDataTable(MaiAT3PlusCoreDecoderChnInfo **chn_infos, floa
 					{
 						mtmp0 = chn_infos[1]->table4;
 						acc_data1 = chn_infos[1]->acc_data_old;
-						acc_data2 = chn_infos[1]->acc_data_old;
+						acc_data2 = chn_infos[1]->acc_data_now;//
 					}
 					else
 					{
 						mtmp0 = chn_infos[0]->table4;
 						acc_data1 = chn_infos[0]->acc_data_old;
-						acc_data2 = chn_infos[0]->acc_data_old;
+						acc_data2 = chn_infos[0]->acc_data_now;//
 					}
 				}
-
 				
 				if ( table_tmp3[mtmp0[table_tmp2[a0]]] > 0.0f )
 				{
@@ -179,7 +176,7 @@ Mai_Status MAPCDDF_initMDataTable(MaiAT3PlusCoreDecoderChnInfo **chn_infos, floa
 						rt0 = al_0;
 					}
 
-					
+
 					Mai_U8 table_tmp5[] = {0x02, 0x08, 0x0C, 0x10, 0x12, 0x14, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F};
 					Mai_U8 table_tmp6[] = {0x08, 0x0C, 0x10, 0x12, 0x14, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, 0x20};
 
@@ -203,11 +200,12 @@ Mai_Status MAPCDDF_initMDataTable(MaiAT3PlusCoreDecoderChnInfo **chn_infos, floa
 							}
 						}
 					}
+
 				}
 			}
 
-
 		}
+
 	}
 
 
@@ -420,7 +418,7 @@ Mai_Status MaiAT3PlusCoreDecoder::decodeStream(Mai_U32 chns)
 	float *mdata0_table[2] = {mdata0_0, mdata0_1};
 
 	{
-		MAPCDDF_initMDataTable(chn_info, mdata0_table, 2);
+		MAPCDDF_initMDataTable(chn_info, mdata0_table, chns);//
 
 		if (1)
 		{
