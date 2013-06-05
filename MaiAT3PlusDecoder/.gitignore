@@ -1,0 +1,14 @@
+*.dll
+*.exp
+*.lib
+*.pdb
+ipch
+*.opensdf
+*.sdf
+*.user
+Release
+Debug
+x64
+*.suo
+libs
+obj
