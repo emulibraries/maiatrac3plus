@@ -1,12 +1,4 @@
-#ifdef _WIN32
-
-#include "stdafx.h"
-
-#endif
-
 #include "maiatrac3plus.h"
-
-
 #include "include/MaiAT3PlusFrameDecoder.h"
 
 extern "C" void* Atrac3plusDecoder_openContext()
