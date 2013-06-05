@@ -271,7 +271,7 @@ Mai_Status MaiAT3PlusCoreDecoder::decodeTable3(MaiBitReader *mbr0, MaiAT3PlusCor
 				if (!chn_infos[a0]->joint_chn_info->var90) atmp0 = MAPCDSD_bind_table2[ (chn_infos[a0]->var1034 * 7 + chn_infos[a0]->table0[a1]) * 4 + chn_infos[a0]->table2[a1] ]; //tmp4 5 6
 				else atmp0 = chn_infos[a0]->table2[a1];
 
-				MaiAT3PlusCoreDecoderSearchTableDes *huff_table_now = &MAPCDSD_huff_table3[(chn_infos[a0]->var1034 * 8 + atmp0) * 7 + chn_infos[a0]->table0[a1]]; //tmp5 6
+				const MaiAT3PlusCoreDecoderSearchTableDes *huff_table_now = &MAPCDSD_huff_table3[(chn_infos[a0]->var1034 * 8 + atmp0) * 7 + chn_infos[a0]->table0[a1]]; //tmp5 6
 				
 				MAPCDSF_decodeTable3Sub0(mbr0, &(chn_infos[a0]->table3[MAPCDSD_bind_table0[a1]]), MAPCDSD_bind_table1[a1], huff_table_now);
 			}
@@ -367,7 +367,7 @@ Mai_Status MaiAT3PlusCoreDecoder::decodeACC2Main(MaiBitReader *mbr0, MaiAT3PlusC
 	return rs;
 }
 
-extern MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table_global_11[];
+extern const MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table_global_11[1];
 Mai_Status MaiAT3PlusCoreDecoder::decodeACC6Inner(MaiBitReader *mbr0, MaiAT3PlusCoreDecoderChnInfo **chn_infos, Mai_U32 chns)
 {
 	Mai_Status rs = 0;

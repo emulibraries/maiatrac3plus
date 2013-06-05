@@ -24,10 +24,10 @@
 #include "Mai_Base0.h"
 
 
-typedef struct _MaiAT3PlusCoreDecoderSearchTableDes
+struct MaiAT3PlusCoreDecoderSearchTableDes
 {
-	Mai_U16 *table0;
-	Mai_U8 *table1;
+	const Mai_U16 *table0;
+	const Mai_U8 *table1;
 	Mai_I32 uk0, uk1;
 	Mai_U8 max_bit_len;
 	Mai_U8 uk2;
@@ -37,7 +37,7 @@ typedef struct _MaiAT3PlusCoreDecoderSearchTableDes
 	Mai_U8 uk6;
 	Mai_U8 mask;
 	Mai_U8 uk8;
-} MaiAT3PlusCoreDecoderSearchTableDes;
+} ;
 
 
 
@@ -154,13 +154,13 @@ typedef struct _MaiAT3PlusCoreDecoderChnInfo
 
 //static funcs
 
-Mai_U32 MAPCDSF_getHuffValue(MaiAT3PlusCoreDecoderSearchTableDes *huff_table, MaiBitReader *mbr0);
+Mai_U32 MAPCDSF_getHuffValue(const MaiAT3PlusCoreDecoderSearchTableDes *huff_table, MaiBitReader *mbr0);
 
 //check func
 Mai_Status MAPCDSF_makeTable0CheckTable(MaiAT3PlusCoreDecoderChnInfo *chn_info, Mai_U32 *check_table);
 
 //used in decodeTable3
-Mai_Status MAPCDSF_decodeTable3Sub0(MaiBitReader *mbr0, Mai_I16 *buf_to_read, Mai_U32 num_to_read, MaiAT3PlusCoreDecoderSearchTableDes *huff_table_now);
+Mai_Status MAPCDSF_decodeTable3Sub0(MaiBitReader *mbr0, Mai_I16 *buf_to_read, Mai_U32 num_to_read, const MaiAT3PlusCoreDecoderSearchTableDes *huff_table_now);
 
 //read table*
 Mai_Status MAPCDSF_readPackTable0(MaiBitReader *mbr0, MaiAT3PlusCoreDecoderPackTable0 *table, Mai_U32 counter);
@@ -180,29 +180,29 @@ Mai_Status MAPCDSF_decodeACC6InnerSub0(MaiBitReader *mbr0, MaiAT3PlusCoreDecoder
 
 //static data
 
-extern Mai_U8 MAPCDSD_band_num_table0[];
-extern Mai_U8 MAPCDSD_band_num_table1[];
+extern const Mai_U8 MAPCDSD_band_num_table0[];
+extern const Mai_U8 MAPCDSD_band_num_table1[];
 
-extern Mai_U32 MAPCDSD_bind_table0[];
-extern Mai_U32 MAPCDSD_bind_table1[];
+extern const Mai_U32 MAPCDSD_bind_table0[];
+extern const Mai_U32 MAPCDSD_bind_table1[];
 
-extern Mai_U8 MAPCDSD_bind_table2[];
+extern const Mai_U8 MAPCDSD_bind_table2[];
 
-extern MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table0[];
+extern const MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table0[];
 
-extern MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table1[];
-extern MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table1_2[];
+extern const MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table1[];
+extern const MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table1_2[];
 
-extern MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table2[];
-extern MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table2_2[];
+extern const MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table2[];
+extern const MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table2_2[];
 
-extern MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table3[];
+extern const MaiAT3PlusCoreDecoderSearchTableDes MAPCDSD_huff_table3[];
 
 typedef Mai_Status (*MaiAT3PlusCoreDecoderSubFuncType0)(MaiBitReader *mbr0, MaiAT3PlusCoreDecoderChnInfo *chn_info);
 
-extern MaiAT3PlusCoreDecoderSubFuncType0 MAPCDSF_decodeTable0_func_list0[];
-extern MaiAT3PlusCoreDecoderSubFuncType0 MAPCDSF_decodeTable1_func_list0[];
-extern MaiAT3PlusCoreDecoderSubFuncType0 MAPCDSF_decodeTable2_func_list0[];
+extern const MaiAT3PlusCoreDecoderSubFuncType0 MAPCDSF_decodeTable0_func_list0[];
+extern const MaiAT3PlusCoreDecoderSubFuncType0 MAPCDSF_decodeTable1_func_list0[];
+extern const MaiAT3PlusCoreDecoderSubFuncType0 MAPCDSF_decodeTable2_func_list0[];
 
 
 
