@@ -341,8 +341,11 @@ Mai_Status MaiFile::setFileLen(Mai_I64 newLength)
 	Mai_I64 fpn;
 	fpn = this->getFilePointer();
 
-	//if (!::ftruncate64(file0, newLength))
+#ifdef ANDROID
 	if (!::syscall(__NR_ftruncate64, file0, newLength))
+#else
+	if (!::ftruncate64(file0, newLength))
+#endif
 	{
 		this->seek(fpn);
 		return 0;
