@@ -300,7 +300,7 @@ Mai_Status MaiFile::seek(Mai_I64 pos)
 {
 	if (file0 == -1) return -1;
 
-	if (-1 == lseek64(file0, pos, 0)) return -1;
+	if (-1 == lseek(file0, pos, 0)) return -1;
 	else return 0;
 }
 
@@ -316,7 +316,7 @@ Mai_I64 MaiFile::getFilePointer()
 {
 	if (file0 == -1) return 0;
 
-	return (Mai_I64)lseek64(file0, 0, 1);
+	return (Mai_I64)lseek(file0, 0, 1);
 }
 
 Mai_I64 MaiFile::getFileLen()
@@ -325,8 +325,8 @@ Mai_I64 MaiFile::getFileLen()
 
 	Mai_I64 len;
 
-	struct stat64 mystat;
-	stat64(src, &mystat);
+	struct stat mystat;
+	stat(src, &mystat);
 
 	len = (Mai_I64)mystat.st_size;
 	if (S_ISBLK(mystat.st_mode))
@@ -344,7 +344,7 @@ Mai_Status MaiFile::setFileLen(Mai_I64 newLength)
 #ifdef ANDROID
 	if (!::syscall(__NR_ftruncate64, file0, newLength))
 #else
-	if (!::ftruncate64(file0, newLength))
+	if (!::ftruncate(file0, newLength))
 #endif
 	{
 		this->seek(fpn);
